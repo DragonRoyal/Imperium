@@ -23,3 +23,4 @@ A corexy gantry is composed of at least 4 pulleys, 2 motors, 3 linear rods ( or 
 ![yZ1mRqmg0R](https://github.com/user-attachments/assets/7d137424-c771-49b1-9551-27206f75b042)
 
 After researching different smaller implementations I landed on H-Bot. H-bot is'nt the most common design and you wont see it in designs such as 3D printers because its not necessarily precise or fast enough for a 3D printer but it should work fine for a chessboard. Next session im going to start designing a H-Bot implementation
+**Time Spent: 4 hours**
