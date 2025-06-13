@@ -54,6 +54,11 @@ Another major headache is figuring out motor movement, since my gantry does not 
 Researching different implementations of a movement system I found G-code to motor movement pretty much for example what klipper does. I would generate custom G-Code depending on the intital square and the end square in pythonn I would then feed that into a firmware called FluidNc a G-Code to motor movement application common in many CNC's. This approach would be similar to klipper in 3D printers but the reason I didn't use klipper is because its not supported on ESP32's and I would rather use a more light weight firmware rather than one packed with features that I would barely use. I'm going to work on the code once I finish manafacturing my actual board but I wanted to first get a sense of what I would need to code and if I needed any extra sensors on my board. Its better to research and find out now then make my board and realize then.
 **Time Spent: 4 Hours**
 
+## ** 6/13/2025 Log 7 Master Board ** ##
+Earlier I made 4 PCB sheets with hall sensors but to control them I need to make a master board. My master board would be what controls the whole board, it would have a ESP32 as the MCU, a 12 volt battery for the Electromagnet and the 2 motors, a buck converter (12V to 3.3V) for the ESP32 and the hall sensors, 2x TMC2209 motor drivers, 4x of 8 pin headers in order to connect to the other 4 boards and a transistor to turn the electro-magnet off and on. Many of these parts do not have footprints or schematics so I designed footprints and schematics for the buck converter the motor drivers and the esp32. ![image](https://github.com/user-attachments/assets/b5abeb64-bd36-4235-ab63-37bcbd62fb35)
+
+
+  
 
 
 
