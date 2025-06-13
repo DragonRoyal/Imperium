@@ -52,7 +52,7 @@ Before I started working on my board further I wanted to make sure the general l
 Another major headache is figuring out motor movement, since my gantry does not have dedicated motors one for X movement and one for Y movement I need to be able to find a effective way of moving the robot from 1 square to another. Another thing is my gantry can not move in diagonals, I need a custom movement system. If I moved in diagnols pieces would collide with each other. I need to move in the edges of each square. 
 ![image](https://github.com/user-attachments/assets/4c481542-d4c5-4302-9235-2631429b65c9)
 Researching different implementations of a movement system I found G-code to motor movement pretty much for example what klipper does. I would generate custom G-Code depending on the intital square and the end square in pythonn I would then feed that into a firmware called FluidNc a G-Code to motor movement application common in many CNC's. This approach would be similar to klipper in 3D printers but the reason I didn't use klipper is because its not supported on ESP32's and I would rather use a more light weight firmware rather than one packed with features that I would barely use. I'm going to work on the code once I finish manafacturing my actual board but I wanted to first get a sense of what I would need to code and if I needed any extra sensors on my board. Its better to research and find out now then make my board and realize then.
-** Time spent: 4 Hours **
+**Time Spent: 4 Hours**
 
 
 
