@@ -56,6 +56,11 @@ Researching different implementations of a movement system I found G-code to mot
 
 ## ** 6/13/2025 Log 7 Master Board ** ##
 Earlier I made 4 PCB sheets with hall sensors but to control them I need to make a master board. My master board would be what controls the whole board, it would have a ESP32 as the MCU, a 12 volt battery for the Electromagnet and the 2 motors, a buck converter (12V to 3.3V) for the ESP32 and the hall sensors, 2x TMC2209 motor drivers, 4x of 8 pin headers in order to connect to the other 4 boards and a transistor to turn the electro-magnet off and on. Many of these parts do not have footprints or schematics so I designed footprints and schematics for the buck converter the motor drivers and the esp32. ![image](https://github.com/user-attachments/assets/b5abeb64-bd36-4235-ab63-37bcbd62fb35)
+I started working on the schematic of the board but because im new to the UART protocol I looked into the datasheet and learned more about the correct implementation and the function of each pin on their [datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/tmc2209_datasheet_rev1.09.pdf). I learned that you should connect both your MCU's uart pins to the motor driver one and be using a resistor in order to allow for bidirectonal data, it allow allows the manafactur to only need 1 pin. One more thing I did was add a 100uF capacitor near ground and vcc since it would help with voltage spikes as motors are notirious for voltage spikes. I found a transistor that turns on and off with only a 3.3v and connected that to my electromagnet to act as a gate. I then added my buck converter in order to convert the voltage into something the MCU and hall sensors could use, to connect to the other 4 pcb sheets I added my header pins as well ![image](https://github.com/user-attachments/assets/2ef98335-79e0-4d74-99d2-587a257b5667)
+For my layout I just arranged my components to fit within a 100x100 pcb and routed it. 
+![Screenshot 2025-06-13 234833](https://github.com/user-attachments/assets/6c5dbc70-8a1b-4feb-9913-a22997da069e)![Screenshot 2025-06-13 234933](https://github.com/user-attachments/assets/67131a5a-1685-4510-9ba3-e1ab07591858)
+**Time Spent 4 Hours**
+
 
 
   
