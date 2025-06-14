@@ -61,6 +61,12 @@ For my layout I just arranged my components to fit within a 100x100 pcb and rout
 ![Screenshot 2025-06-13 234833](https://github.com/user-attachments/assets/6c5dbc70-8a1b-4feb-9913-a22997da069e)![Screenshot 2025-06-13 234933](https://github.com/user-attachments/assets/67131a5a-1685-4510-9ba3-e1ab07591858)
 **Time Spent 4 Hours**
 
+## 6/14/2025 Log 8 Updating CAD and BOM** ##
+I added lots of new parts since last time I worked on the CAD so I wanted to update it to be reflective of the changes. The first thing im going to design is a electromagnet holder in order to house the elctromagnet, it will be attached to the gantry through 2 counter sink screws ![image](https://github.com/user-attachments/assets/9d41f2e8-c454-43c5-9897-85dadba3497a)
+I also increased the size of the top panel of the chessboard in order to cover the entire 590mm by 590mm chessboard. I also added physical endstops to the pulleys to help with sensorless homing, I imported the electronic components onto the board such as the 4 hall sensor sheets and the master PCB, added a physicalo enclosure around the board and added screw holes to hold the enclosure together. I ran into some issues of parts not fitting and I had to move some parts in order to make space but in the end I ended up with a hopefully finished cad ![image](https://github.com/user-attachments/assets/5429a908-845a-457f-a176-c10df8ac255f) ![image](https://github.com/user-attachments/assets/6cfc47c5-7a49-4408-a4b5-48f08b3aa334)
+**Time spent 3 hours**
+
+
 
 
   
