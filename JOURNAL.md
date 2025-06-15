@@ -3,7 +3,7 @@ title: "Imperium"
 author: "Aarav Singhania"
 description: "A self moving chessboard controlled by electro magnets"
 ---
-
+Total Time spent: 37 hours
 ## **5/24/2025 Log 1 Deciding a Gantry**
 Some of the main things I want to keep in mind while deciding a gantry is the cost and the size of the gantry, who wants to play chess on a 5 feet x 5 feet chessboard? 
 Before deciding a gantry I wanted to lay out what were the bare minimum requirements my gantry should be able to achieve. 
