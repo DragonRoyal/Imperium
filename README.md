@@ -8,6 +8,7 @@ The board works with by having a 2 different microcontrollers, one has a gcode h
 ![image](https://github.com/user-attachments/assets/50e8c8e2-8ba4-4c7f-9a4a-bf9df8d5cbbd)
 
 **PCB**
-![image](https://github.com/user-attachments/assets/a24777b1-6c02-4e0b-9779-9eb80ec8236e) ![image](https://github.com/user-attachments/assets/ae613a87-6d81-4eac-adc6-081b3d725f28) ![image](https://github.com/user-attachments/assets/55f2aaf5-2e43-40c6-b2fa-735ea2e7b1ca) ![image](https://github.com/user-attachments/assets/0641aafe-a7a1-4ce9-b599-06e4ffb9c0a8)
+<img width="687" height="693" alt="image" src="https://github.com/user-attachments/assets/7c01dde1-3aa7-4aa2-8ba8-0a09ad2e6410" />
+ ![image](https://github.com/user-attachments/assets/ae613a87-6d81-4eac-adc6-081b3d725f28) ![image](https://github.com/user-attachments/assets/55f2aaf5-2e43-40c6-b2fa-735ea2e7b1ca) ![image](https://github.com/user-attachments/assets/0641aafe-a7a1-4ce9-b599-06e4ffb9c0a8)
 
 
