@@ -121,7 +121,7 @@ flowchart TB
     PCB4 --> Master
 ```
 <p align="center">
-  <img src="diagrams/hall_pcb_layout.png" width="650">
+  ![image](https://github.com/user-attachments/assets/0641aafe-a7a1-4ce9-b599-06e4ffb9c0a8)
 </p>
 
 <p align="center">
@@ -143,7 +143,7 @@ Total sheets: **4**
 ### Master Control Board
 
 <p align="center">
-  <img src="diagrams/master_board_block.png" width="650">
+  <img width="687" height="693" alt="image" src="https://github.com/user-attachments/assets/7c01dde1-3aa7-4aa2-8ba8-0a09ad2e6410" />
 </p>
 
 <p align="center">
@@ -249,9 +249,9 @@ https://docs.google.com/spreadsheets/d/1yp7t6AiXMwJCAfVlhCX7udocGjks9lOOFWkv4rPJ
 
 
 **PCB**
-<img width="687" height="693" alt="image" src="https://github.com/user-attachments/assets/7c01dde1-3aa7-4aa2-8ba8-0a09ad2e6410" />
+
 <img width="1066" height="654" alt="image" src="https://github.com/user-attachments/assets/936f3372-4393-4579-ac14-d43b7329d3f4" />
- ![image](https://github.com/user-attachments/assets/55f2aaf5-2e43-40c6-b2fa-735ea2e7b1ca) ![image](https://github.com/user-attachments/assets/0641aafe-a7a1-4ce9-b599-06e4ffb9c0a8)
+ ![image](https://github.com/user-attachments/assets/55f2aaf5-2e43-40c6-b2fa-735ea2e7b1ca) 
 
 
 
