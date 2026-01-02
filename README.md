@@ -52,12 +52,12 @@ flowchart LR
 ## Hardware Architecture
 
 ### Mechanical Subsystem
-**CAD**
+
 ![image](https://github.com/user-attachments/assets/50e8c8e2-8ba4-4c7f-9a4a-bf9df8d5cbbd)
 
 
 <p align="center">
-  <em>Figure 3: T-Bot gantry layout and belt routing</em>
+  <em>CAD Figure: T-Bot gantry layout and belt routing</em>
 </p>
 
 **Gantry Design**
