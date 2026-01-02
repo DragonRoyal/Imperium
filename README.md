@@ -74,20 +74,6 @@ flowchart LR
 
 ---
 
-### Electromagnet Assembly
-
-<p align="center">
-  <img src="diagrams/electromagnet_mount.png" width="500">
-</p>
-
-<p align="center">
-  <em>Figure 4: Electromagnet carriage mounted to gantry</em>
-</p>
-
-The electromagnet is mounted beneath the board and selectively energized to move pieces while remaining disengaged during traversal.
-
----
-
 ## Sensing Architecture
 
 ### Hall Sensor Matrix
