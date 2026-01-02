@@ -121,7 +121,9 @@ flowchart TB
     PCB4 --> Master
 ```
 <p align="center">
-  ![image](https://github.com/user-attachments/assets/0641aafe-a7a1-4ce9-b599-06e4ffb9c0a8) ![image](https://github.com/user-attachments/assets/55f2aaf5-2e43-40c6-b2fa-735ea2e7b1ca) 
+  <img width="1549" height="443" alt="image" src="https://github.com/user-attachments/assets/f73844ed-6b2d-4f5b-b489-c5b84b5b5fde" />
+  <img width="1129" height="613" alt="image" src="https://github.com/user-attachments/assets/2986e8ea-5849-4472-bf4a-f83741cb089a" />
+
 </p>
 
 <p align="center">
@@ -202,11 +204,12 @@ UART enables:
 ## Bill of Materials (BOM)
 
 <p align="center">
-  <img src="diagrams/bom_overview.png" width="600">
+  <img width="1896" height="808" alt="image" src="https://github.com/user-attachments/assets/e014ec14-6406-42a5-a177-552a8acb103d" />
+
 </p>
 
 📎 **Full BOM:**  
-https://docs.google.com/spreadsheets/d/1yp7t6AiXMwJCAfVlhCX7udocGjks9lOOFWkv4rPJByo/edit
+https://docs.google.com/spreadsheets/d/1yp7t6AiXMwJCAfVlhCX7udocGjks9lOOFWkv4rPJByo/view
 
 ---
 
