@@ -54,13 +54,13 @@ flowchart LR
 ### Mechanical Subsystem
 ```mermaid
 flowchart TB
-    MotorA[NEMA 17\nMotor A]
-    MotorB[NEMA 17\nMotor B]
+    MotorA[NEMA 17 Motor A]
+    MotorB[NEMA 17 nMotor B]
     Pulley1[Idler Pulley]
     Pulley2[Idler Pulley]
-    RailX[MGN12 Rail\nX Axis]
-    RailY[MGN12 Rail\nY Axis]
-    Carriage[Electromagnet\nCarriage]
+    RailX[MGN12 Rail X Axis]
+    RailY[MGN12 Rail Y Axis]
+    Carriage[Electromagnet Carriage]
 
     MotorA --> Pulley1
     MotorB --> Pulley2
@@ -194,14 +194,15 @@ All schematics and footprints were custom-designed in KiCad.
 ---
 
 ### UART Motor Control
+Chess pieces are moved exclusively along square edges rather than diagonals. This design choice:
 
-<p align="center">
-  <img src="diagrams/tmc2209_uart.png" width="500">
-</p>
+Prevents collisions with stationary pieces
 
-<p align="center">
-  <em>Figure 8: TMC2209 UART configuration</em>
-</p>
+Simplifies motion planning
+
+Ensures consistent and predictable movement paths
+
+The gantry executes all moves as a sequence of orthogonal segments.
 
 UART enables:
 - Sensorless homing  
@@ -237,33 +238,6 @@ UART enables:
 
 ---
 
-### Collision-Safe Movement Logic
-
-<p align="center">
-  <img src="diagrams/movement_constraints.png" width="500">
-</p>
-
-<p align="center">
-  <em>Figure 10: Edge-only movement strategy</em>
-</p>
-
-Diagonal motion is intentionally avoided to prevent collisions with stationary pieces.
-
----
-
-## Sensorless Homing
-
-<p align="center">
-  <img src="diagrams/sensorless_homing.png" width="500">
-</p>
-
-<p align="center">
-  <em>Figure 11: Stall-based homing using TMC2209</em>
-</p>
-
-The gantry homes by detecting motor stall against physical hard-stops—no limit switches required.
-
----
 
 ## Bill of Materials (BOM)
 
@@ -299,14 +273,9 @@ https://docs.google.com/spreadsheets/d/1yp7t6AiXMwJCAfVlhCX7udocGjks9lOOFWkv4rPJ
 
 - CoreXY reference — https://corexy.com  
 - Gantry design pitfalls — https://drmrehorst.blogspot.com  
-- TMC2209 Datasheet — Analog Devices  
-- KTH-1601 Datasheet — Sensor-Test  
+
 
 ---
-
-## License
-
-Educational and non-commercial use.
 
 **CAD**
 ![image](https://github.com/user-attachments/assets/50e8c8e2-8ba4-4c7f-9a4a-bf9df8d5cbbd)
