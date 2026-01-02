@@ -52,26 +52,9 @@ flowchart LR
 ## Hardware Architecture
 
 ### Mechanical Subsystem
-```mermaid
-flowchart TB
-    MotorA[NEMA 17 Motor A]
-    MotorB[NEMA 17 nMotor B]
-    Pulley1[Idler Pulley]
-    Pulley2[Idler Pulley]
-    RailX[MGN12 Rail X Axis]
-    RailY[MGN12 Rail Y Axis]
-    Carriage[Electromagnet Carriage]
+**CAD**
+![image](https://github.com/user-attachments/assets/50e8c8e2-8ba4-4c7f-9a4a-bf9df8d5cbbd)
 
-    MotorA --> Pulley1
-    MotorB --> Pulley2
-    Pulley1 --> Carriage
-    Pulley2 --> Carriage
-    RailX --> Carriage
-    RailY --> Carriage
-```
-<p align="center">
-  <img src="diagrams/gantry_layout.png" width="650">
-</p>
 
 <p align="center">
   <em>Figure 3: T-Bot gantry layout and belt routing</em>
@@ -277,8 +260,7 @@ https://docs.google.com/spreadsheets/d/1yp7t6AiXMwJCAfVlhCX7udocGjks9lOOFWkv4rPJ
 
 ---
 
-**CAD**
-![image](https://github.com/user-attachments/assets/50e8c8e2-8ba4-4c7f-9a4a-bf9df8d5cbbd)
+
 
 **PCB**
 <img width="687" height="693" alt="image" src="https://github.com/user-attachments/assets/7c01dde1-3aa7-4aa2-8ba8-0a09ad2e6410" />
