@@ -1,8 +1,6 @@
 # Imperium
 ### An Autonomous, Sensor-Driven Chessboard with Electromagnetic Piece Control
 
-**Author:** Aarav Singhania  
----
 
 ## Abstract
 
@@ -36,7 +34,8 @@ flowchart LR
 ### Completed System
 
 <p align="center">
-  <img src="images/imperium_overview.jpg" width="600">
+  <img width="616" height="592" alt="image" src="https://github.com/user-attachments/assets/e21de52c-fdd0-4890-bcb1-83de70777aea" />
+
 </p>
 
 <p align="center">
@@ -44,8 +43,8 @@ flowchart LR
 </p>
 
 ### Videos
-- 🎥 demonstration video: *(link)*
-
+- 🎥 demonstration video: *(https://frc2468.slack.com/files/U07KZ60QWQK/F09DE423JVD/untitled_design.mp4)*
+- 🎥 ![piece movement](https://www.youtube.com/watch?v=BL-nZTy-D_8)
 
 ---
 
