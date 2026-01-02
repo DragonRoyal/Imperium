@@ -43,8 +43,8 @@ flowchart LR
 </p>
 
 ### Videos
-- 🎥 demonstration video: *(https://frc2468.slack.com/files/U07KZ60QWQK/F09DE423JVD/untitled_design.mp4)*
-- 🎥 ![piece movement](https://www.youtube.com/watch?v=BL-nZTy-D_8)
+- 🎥 [demonstration video](https://www.youtube.com/watch?v=dJfiPbZPBKA)
+- 🎥 [piece movement](https://www.youtube.com/watch?v=BL-nZTy-D_8)
 
 ---
 
