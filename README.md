@@ -10,15 +10,26 @@
 
 ---
 
-## System at a Glance
+## System Overview
 
-<p align="center">
-  <img src="diagrams/system_overview.png" width="700">
-</p>
+```mermaid
+flowchart LR
+    Pieces[Chess Pieces\n(Magnets)]
+    Sensors[Hall Sensor Matrix\n(64 Squares)]
+    Mux[Multiplexers\n(16:1)]
+    MCU[ESP32\nMaster Controller]
+    Drivers[TMC2209\nMotor Drivers]
+    Motors[Stepper Motors\n(T-Bot Gantry)]
+    Magnet[Electromagnet]
 
-**Figure 1:** High-level system architecture showing sensing, control, and actuation layers.
+    Pieces --> Sensors
+    Sensors --> Mux
+    Mux --> MCU
+    MCU --> Drivers
+    Drivers --> Motors
+    MCU --> Magnet
+```
 
----
 
 ## Project Media
 
@@ -32,17 +43,32 @@
   <em>Figure 2: Fully assembled Imperium chessboard</em>
 </p>
 
-### Demonstration Videos
-- 🎥 Full autonomous game: *(link)*
-- 🎥 Gantry movement & homing: *(link)*
-- 🎥 Hall sensor detection demo: *(link)*
+### Videos
+- 🎥 demonstration video: *(link)*
+
 
 ---
 
 ## Hardware Architecture
 
 ### Mechanical Subsystem
+```mermaid
+flowchart TB
+    MotorA[NEMA 17\nMotor A]
+    MotorB[NEMA 17\nMotor B]
+    Pulley1[Idler Pulley]
+    Pulley2[Idler Pulley]
+    RailX[MGN12 Rail\nX Axis]
+    RailY[MGN12 Rail\nY Axis]
+    Carriage[Electromagnet\nCarriage]
 
+    MotorA --> Pulley1
+    MotorB --> Pulley2
+    Pulley1 --> Carriage
+    Pulley2 --> Carriage
+    RailX --> Carriage
+    RailY --> Carriage
+```
 <p align="center">
   <img src="diagrams/gantry_layout.png" width="650">
 </p>
@@ -82,10 +108,19 @@ The electromagnet is mounted beneath the board and selectively energized to move
 ## Sensing Architecture
 
 ### Hall Sensor Matrix
+```mermaid
+flowchart LR
+    Square1[Square 1]
+    Square2[Square 2]
+    SquareN[Square 64]
+    Mux1[16:1 MUX]
+    MCU[ESP32]
 
-<p align="center">
-  <img src="diagrams/hall_sensor_grid.png" width="650">
-</p>
+    Square1 --> Mux1
+    Square2 --> Mux1
+    SquareN --> Mux1
+    Mux1 --> MCU
+```
 
 <p align="center">
   <em>Figure 5: 64-square Hall-effect sensor grid</em>
@@ -103,7 +138,19 @@ The electromagnet is mounted beneath the board and selectively energized to move
 ---
 
 ### PCB Sheet Layout
+```mermaid
+flowchart TB
+    PCB1[Hall PCB Sheet 1\n16 Sensors]
+    PCB2[Hall PCB Sheet 2\n16 Sensors]
+    PCB3[Hall PCB Sheet 3\n16 Sensors]
+    PCB4[Hall PCB Sheet 4\n16 Sensors]
+    Master[Master PCB]
 
+    PCB1 --> Master
+    PCB2 --> Master
+    PCB3 --> Master
+    PCB4 --> Master
+```
 <p align="center">
   <img src="diagrams/hall_pcb_layout.png" width="650">
 </p>
