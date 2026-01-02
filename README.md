@@ -2,168 +2,265 @@
 ### An Autonomous, Sensor-Driven Chessboard with Electromagnetic Piece Control
 
 **Author:** Aarav Singhania  
+---
+
+## Abstract
+
+**Imperium** is a fully autonomous chessboard that detects and moves pieces using a precision electromagnetic gantry, per-square Hall-effect sensing, and CNC-style motion control. The system integrates custom mechanical design, multi-PCB electronics, and firmware-level motion planning to deliver seamless, repeatable gameplay without manual calibration.
 
 ---
 
-## Overview
+## System at a Glance
 
-**Imperium** is a fully autonomous chessboard capable of detecting and moving chess pieces without human intervention. The system combines a precision electromagnetic gantry, per-square Hall-effect sensing, and CNC-style motion control to deliver reliable, repeatable gameplay.
+<p align="center">
+  <img src="diagrams/system_overview.png" width="700">
+</p>
 
-Unlike novelty self-moving chessboards, Imperium was engineered with a focus on **low cost**, **being easy to build and manafacture**, and **transparency**. The board operates autonomously once powered, requiring no calibration or manual correction from the user.
+**Figure 1:** High-level system architecture showing sensing, control, and actuation layers.
 
 ---
 
 ## Project Media
 
-> 📸 **Photos, videos, and demonstrations of the completed system**
+### Completed System
 
-<!-- Replace placeholders below with your media -->
+<p align="center">
+  <img src="images/imperium_overview.jpg" width="600">
+</p>
 
-### Photos
-- `images/imperium_overview.jpg`
-- `images/gantry_mechanism.jpg`
-- `images/hall_sensor_pcb.jpg`
-- `images/master_board.jpg`
+<p align="center">
+  <em>Figure 2: Fully assembled Imperium chessboard</em>
+</p>
 
-### Videos
-- **Gantry Movement Test:** *(link here)*
-- **Piece Detection Demo:** *(link here)*
-
-> Tip: GitHub supports embedded images and YouTube/Vimeo links.
-
----
-
-## Key Features
-
-- **Autonomous Piece Movement**  
-  Chess pieces are moved beneath the board using an electromagnet mounted on a precision gantry.
-
-- **Per-Square Piece Detection**  
-  Each of the 64 squares is monitored using Hall-effect sensors for accurate and immediate state detection.
-
-- **Sensorless Homing**  
-  True (0,0) positioning achieved using TMC2209 motor stall detection—no limit switches required.
-
-- **Collision-Safe Motion Planning**  
-  All movement is constrained to square edges, preventing diagonal collisions with stationary pieces.
-
-- **Modular Hardware Architecture**  
-  Multi-PCB design improves manufacturability, reduces cost, and simplifies debugging.
+### Demonstration Videos
+- 🎥 Full autonomous game: *(link)*
+- 🎥 Gantry movement & homing: *(link)*
+- 🎥 Hall sensor detection demo: *(link)*
 
 ---
 
-## System Architecture
+## Hardware Architecture
 
-### Mechanical System
+### Mechanical Subsystem
 
-- **Gantry Type:** T-Bot (CoreXY derivative)  
-- **Motors:** 2× NEMA 17 stepper motors  
-- **Linear Motion:** 2× MGN12 linear rails (450 mm)  
-- **Drive System:** GT2 timing belts and pulleys  
-- **End Effector:** Custom electromagnet mount (3D printed)
+<p align="center">
+  <img src="diagrams/gantry_layout.png" width="650">
+</p>
 
-The T-Bot gantry was selected to balance **compact size**, **cost efficiency**, and **sufficient precision** for chess piece manipulation.
+<p align="center">
+  <em>Figure 3: T-Bot gantry layout and belt routing</em>
+</p>
 
----
+**Gantry Design**
+- Type: **T-Bot (CoreXY derivative)**
+- Motors: 2× NEMA 17
+- Linear motion: 2× MGN12 rails (450 mm)
+- Drive: GT2 belts & pulleys
+- End effector: Electromagnet (custom mount)
 
-### Sensing System
-
-- **Sensors:** KTH-1601 Hall-effect sensors (46 Gs threshold)  
-- **Layout:**  
-  - 64 sensors (1 per square)  
-  - Distributed across 4 PCB sheets (100 mm × 400 mm)
-
-- **Signal Management:**  
-  - 16:1 multiplexers (one per PCB)  
-  - Only 4 MCU pins required to scan the entire board
-
-Hall sensors were chosen over reed switches due to faster response times, lack of ghosting, and improved reliability.
+**Design Rationale**
+- Compact footprint compared to CoreXY  
+- Sufficient precision for chess (no micron-level requirement)  
+- Reduced part count and cost  
 
 ---
 
-### Electronics
+### Electromagnet Assembly
 
-#### Master Control Board
+<p align="center">
+  <img src="diagrams/electromagnet_mount.png" width="500">
+</p>
 
-- **Microcontroller:** ESP32  
-- **Motor Drivers:** 2× TMC2209 (UART-controlled)  
-- **Power System:**  
-  - 12 V rail for motors and electromagnet  
-  - Buck converter (12 V → 3.3 V) for logic and sensors  
-- **Electromagnet Control:** Logic-level transistor
+<p align="center">
+  <em>Figure 4: Electromagnet carriage mounted to gantry</em>
+</p>
 
-All symbols and footprints were custom-designed in KiCad. The system primarily uses SMD components to enable stencil and hot-plate reflow soldering.
+The electromagnet is mounted beneath the board and selectively energized to move pieces while remaining disengaged during traversal.
 
 ---
 
-## Motion Control & Software
+## Sensing Architecture
 
-Imperium uses a CNC-inspired control pipeline:
+### Hall Sensor Matrix
+
+<p align="center">
+  <img src="diagrams/hall_sensor_grid.png" width="650">
+</p>
+
+<p align="center">
+  <em>Figure 5: 64-square Hall-effect sensor grid</em>
+</p>
+
+- Sensors: **KTH-1601 (46 Gs threshold)**
+- 1 sensor per square (64 total)
+- Mounted beneath ~3 mm acrylic
+
+**Why Hall Sensors**
+- Instantaneous response  
+- No ghosting (unlike reed switches)  
+- Reliable removal detection  
+
+---
+
+### PCB Sheet Layout
+
+<p align="center">
+  <img src="diagrams/hall_pcb_layout.png" width="650">
+</p>
+
+<p align="center">
+  <em>Figure 6: Hall sensor PCB sheet (100 mm × 400 mm)</em>
+</p>
+
+Each PCB sheet contains:
+- 16 Hall sensors  
+- 1× 16:1 multiplexer  
+- Local decoupling capacitors  
+- Ribbon cable interface  
+
+Total sheets: **4**
+
+---
+
+## Control Electronics
+
+### Master Control Board
+
+<p align="center">
+  <img src="diagrams/master_board_block.png" width="650">
+</p>
+
+<p align="center">
+  <em>Figure 7: Master PCB functional block diagram</em>
+</p>
+
+**Core Components**
+- MCU: **ESP32**
+- Motor drivers: **2× TMC2209 (UART)**
+- Power:
+  - 12 V rail (motors + electromagnet)
+  - Buck converter → 3.3 V logic
+- Electromagnet switching via transistor
+
+All schematics and footprints were custom-designed in KiCad.
+
+---
+
+### UART Motor Control
+
+<p align="center">
+  <img src="diagrams/tmc2209_uart.png" width="500">
+</p>
+
+<p align="center">
+  <em>Figure 8: TMC2209 UART configuration</em>
+</p>
+
+UART enables:
+- Sensorless homing  
+- Stall detection  
+- Current tuning  
+- Advanced diagnostics  
+
+---
+
+## Motion Control & Software Pipeline
+
+<p align="center">
+  <img src="diagrams/software_pipeline.png" width="700">
+</p>
+
+<p align="center">
+  <em>Figure 9: End-to-end software and motion pipeline</em>
+</p>
+
+### Control Flow
 
 1. **Board State Detection**  
-   Hall sensor matrix determines current piece positions.
+   Hall sensor matrix scans current piece positions.
 
 2. **Move Translation**  
-   Chess moves are translated into constrained motion paths.
+   Chess moves converted into constrained paths.
 
 3. **G-Code Generation**  
-   Custom G-code is generated to enforce non-diagonal movement.
+   Custom G-code enforces non-diagonal movement.
 
 4. **Execution**  
-   G-code is executed using **FluidNC**, which drives the stepper motors.
-
-This architecture is inspired by modern 3D printer firmware (e.g., Klipper) but optimized for ESP32 compatibility and reduced overhead.
+   G-code executed by **FluidNC** on ESP32.
 
 ---
 
-## Design Considerations
+### Collision-Safe Movement Logic
 
-- **No Diagonal Traversal**  
-  Prevents accidental collisions with other pieces.
+<p align="center">
+  <img src="diagrams/movement_constraints.png" width="500">
+</p>
 
-- **Relaxed Mechanical Tolerances**  
-  Chess movement does not require micron-level precision.
+<p align="center">
+  <em>Figure 10: Edge-only movement strategy</em>
+</p>
 
-- **Magnetic Field Isolation**  
-  Sensor sensitivity and spacing were selected to prevent cross-square interference.
+Diagonal motion is intentionally avoided to prevent collisions with stationary pieces.
+
+---
+
+## Sensorless Homing
+
+<p align="center">
+  <img src="diagrams/sensorless_homing.png" width="500">
+</p>
+
+<p align="center">
+  <em>Figure 11: Stall-based homing using TMC2209</em>
+</p>
+
+The gantry homes by detecting motor stall against physical hard-stops—no limit switches required.
 
 ---
 
 ## Bill of Materials (BOM)
 
-A detailed BOM was created to track electronics, mechanical hardware, raw materials, and miscellaneous components while optimizing cost and supplier consolidation.
+<p align="center">
+  <img src="diagrams/bom_overview.png" width="600">
+</p>
 
-📎 **BOM Spreadsheet:**  
-[View BOM on Google Sheets](https://docs.google.com/spreadsheets/d/1yp7t6AiXMwJCAfVlhCX7udocGjks9lOOFWkv4rPJByo/edit?usp=sharing)
+📎 **Full BOM:**  
+https://docs.google.com/spreadsheets/d/1yp7t6AiXMwJCAfVlhCX7udocGjks9lOOFWkv4rPJByo/edit
 
 ---
 
 ## Results
 
-- Reliable, repeatable piece movement  
-- Accurate real-time board state detection  
-- Stable sensorless homing  
-- Fully autonomous gameplay without user intervention  
-
-The completed system performs consistently without requiring recalibration between games.
+- Reliable autonomous gameplay  
+- Accurate per-square detection  
+- Consistent homing and positioning  
+- No recalibration required between games  
 
 ---
 
-## Future Improvements
+## Future Work
 
-- Chess engine integration (local or cloud-based)
-- Companion UI or mobile app
-- Reduced gantry noise
-- Faster move execution
-- Enclosed, consumer-ready housing
+- Chess engine integration  
+- Companion UI / mobile app  
+- Faster traversal paths  
+- Noise reduction  
+- Fully enclosed consumer-ready housing  
 
 ---
 
-## References & Acknowledgements
+## References
 
-- CoreXY reference: https://corexy.com  
-- Gantry design considerations: https://drmrehorst.blogspot.com  
+- CoreXY reference — https://corexy.com  
+- Gantry design pitfalls — https://drmrehorst.blogspot.com  
+- TMC2209 Datasheet — Analog Devices  
+- KTH-1601 Datasheet — Sensor-Test  
+
 ---
+
+## License
+
+Educational and non-commercial use.
+
 **CAD**
 ![image](https://github.com/user-attachments/assets/50e8c8e2-8ba4-4c7f-9a4a-bf9df8d5cbbd)
 
