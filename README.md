@@ -14,12 +14,12 @@
 
 ```mermaid
 flowchart LR
-    Pieces[Chess Pieces<br/>(Magnets)]
-    Sensors[Hall Sensor Matrix<br/>64 Squares]
-    Mux[16:1<br/>Multiplexers]
-    MCU[ESP32<br/>Master Controller]
-    Drivers[TMC2209<br/>Motor Drivers]
-    Motors[Stepper Motors<br/>T-Bot Gantry]
+    Pieces[Chess Pieces — Magnets]
+    Sensors[Hall Sensor Matrix — 64 Squares]
+    Mux[16:1 Multiplexers]
+    MCU[ESP32 Master Controller]
+    Drivers[TMC2209 Motor Drivers]
+    Motors[Stepper Motors — T-Bot Gantry]
     Magnet[Electromagnet]
 
     Pieces --> Sensors
@@ -28,7 +28,6 @@ flowchart LR
     MCU --> Drivers
     Drivers --> Motors
     MCU --> Magnet
-
 ```
 
 
